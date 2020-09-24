@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, OutputGraphComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { HighchartComponent } from './highchart/highchart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OutputGraphComponent
+    HighchartComponent
   ],
   imports: [
     BrowserModule,
