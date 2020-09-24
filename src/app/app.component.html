@@ -2,22 +2,44 @@
     <div class="row">
         <nav class="navbar navbar-light bg-light col-12" style="">
             <a class="navbar-brand">Open Weather API Demo</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="cityChnage($event)">Search</button>
-            </form>
+            <div class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)]="cityName">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="cityChange($event)">Search</button>
+            </div>
+            
         </nav>
-        
-        <div class="col-4">
-            {{data.clouds.all}}
+        <div class="col-md-8">
+            <app-output-graph></app-output-graph>
         </div>
-        <div class="col-4">
+        
+        <div class="col-md-4">
+            <div class="widget">
+                <div class="left-panel panel">
+                    <div class="date">
+                        <!-- Monday, 20 Aug 2018 -->
+                        {{date | date:'EEEE, MMMM d, y'}}
+                    </div>
+                    <div class="city">
+                        <!-- Mumbai -->
+                        {{data.name}}
+                    </div>
+                    <div class="temp">
+                       <img src="https://s5.postimg.cc/yzcm7htyb/image.png" alt="" width="60">
+                       {{data.main.temp-275 | number:'1.0-0'}}&deg;
+                    </div>
+                </div>
+                <div class="right-panel panel">
+                    <img src="https://s5.postimg.cc/lifnombwz/mumbai1.png" alt="" width="160">
+                </div>
+            </div>
+
+            <!-- <div class="col-4">
             <ul class="list-group text-uppercase">
                 <li class="list-group-item d-flex justify-content-between align-items-center">Longitude: <span class="badge badge-primary badge-pill">{{data.coord.lon}}</span></li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">Latitude: <span class="badge badge-primary badge-pill">{{data.coord.lat}}</span></li>
             </ul>
-        </div>
-        <div class="col-4">
+        </div> -->
+        <div class="col-md-12 pl-0 pr-0">
 
             <ul class="list-group text-uppercase">
                 <li class="list-group-item d-flex justify-content-between align-items-center">feels like <span class="badge badge-primary badge-pill">{{data.main.feels_like}}</span></li>
@@ -29,6 +51,8 @@
             </ul>
         
         </div>
+        </div>
+        
         <div class="col-4">
             <!-- {{data.cluods}} -->
         </div>
